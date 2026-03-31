@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All Indian Foods – Discover Every Flavour of India</title>
+  <meta name="description"
+    content="Explore the incredible diversity of Indian food – from North Indian curries to South Indian dosas, street food, desserts, and regional specialties." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;900&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <!-- ====== NAVBAR ====== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <span class="logo-icon">🍛</span>
+        <span class="logo-text">All Indian Foods</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#cuisines">Cuisines</a></li>
+        <li><a href="#explore">Explore</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ====== HERO ====== -->
+  <header class="hero" id="home">
+    <div class="hero-overlay"></div>
+    <img src="hero.png" alt="Indian Food Spread" class="hero-bg" />
+    <div class="hero-content">
+      <p class="hero-eyebrow">🇮🇳 A Culinary Journey Across India</p>
+      <h1 class="hero-title">All Indian Foods</h1>
+      <p class="hero-subtitle">Discover 100+ iconic dishes from 28 states – every spice, every story, every bite.</p>
+      <div class="hero-search">
+        <input type="text" id="searchInput" placeholder="Search for a dish, cuisine or ingredient…"
+          aria-label="Search foods" />
+        <button id="searchBtn">🔍 Search</button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num" data-target="100">0</span><span class="stat-label">Dishes</span></div>
+        <div class="stat"><span class="stat-num" data-target="7">0</span><span class="stat-label">Cuisine Regions</span>
+        </div>
+        <div class="stat"><span class="stat-num" data-target="28">0</span><span class="stat-label">States Covered</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>Scroll to Explore</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </header>
+
+  <!-- ====== CUISINE BANDS ====== -->
+  <section class="cuisines-band" id="cuisines">
+    <div class="band-inner">
+      <div class="cuisine-card" data-filter="north" id="cuisine-north">
+        <div class="cuisine-emoji">🧅</div>
+        <h3>North Indian</h3>
+        <p>Punjab · Delhi · Rajasthan · UP</p>
+      </div>
+      <div class="cuisine-card" data-filter="south" id="cuisine-south">
+        <div class="cuisine-emoji">🥥</div>
+        <h3>South Indian</h3>
+        <p>Tamil Nadu · Kerala · Karnataka · Andhra</p>
+      </div>
+      <div class="cuisine-card" data-filter="east" id="cuisine-east">
+        <div class="cuisine-emoji">🐟</div>
+        <h3>East Indian</h3>
+        <p>Bengal · Odisha · Assam · Bihar</p>
+      </div>
+      <div class="cuisine-card" data-filter="west" id="cuisine-west">
+        <div class="cuisine-emoji">🫓</div>
+        <h3>West Indian</h3>
+        <p>Maharashtra · Gujarat · Goa · Rajasthan</p>
+      </div>
+      <div class="cuisine-card" data-filter="street" id="cuisine-street">
+        <div class="cuisine-emoji">🥙</div>
+        <h3>Street Food</h3>
+        <p>Chaat · Pani Puri · Vada Pav</p>
+      </div>
+      <div class="cuisine-card" data-filter="dessert" id="cuisine-dessert">
+        <div class="cuisine-emoji">🍮</div>
+        <h3>Desserts</h3>
+        <p>Mithai · Halwa · Kheer</p>
+      </div>
+      <div class="cuisine-card" data-filter="beverage" id="cuisine-beverage">
+        <div class="cuisine-emoji">🥛</div>
+        <h3>Beverages</h3>
+        <p>Chai · Lassi · Filter Coffee</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== EXPLORE SECTION ====== -->
+  <section class="explore-section" id="explore">
+    <div class="explore-header">
+      <h2>Explore Every Dish</h2>
+      <p>Filter by cuisine or search for your favourite</p>
+    </div>
+
+    <!-- Filter Pills -->
+    <div class="filter-pills" id="filterPills">
+      <button class="pill active" data-filter="all" id="pill-all">🍽️ All</button>
+      <button class="pill" data-filter="north" id="pill-north">🧅 North Indian</button>
+      <button class="pill" data-filter="south" id="pill-south">🥥 South Indian</button>
+      <button class="pill" data-filter="east" id="pill-east">🐟 East Indian</button>
+      <button class="pill" data-filter="west" id="pill-west">🫓 West Indian</button>
+      <button class="pill" data-filter="street" id="pill-street">🥙 Street Food</button>
+      <button class="pill" data-filter="dessert" id="pill-dessert">🍮 Desserts</button>
+      <button class="pill" data-filter="beverage" id="pill-beverage">🥛 Beverages</button>
+    </div>
+
+    <!-- Food Grid -->
+    <div class="food-grid" id="foodGrid">
+      <!-- Cards injected by JS -->
+    </div>
+
+    <div class="no-results" id="noResults" style="display:none;">
+      <div class="no-results-icon">🔍</div>
+      <h3>No dishes found</h3>
+      <p>Try a different search term or filter</p>
+    </div>
+  </section>
+
+  <!-- ====== ABOUT BANNER ====== -->
+  <section class="about-banner" id="about">
+    <div class="about-inner">
+      <div class="about-text">
+        <h2>A Billion Tastes, One Nation</h2>
+        <p>India's cuisine is as diverse as its people. Each region carries centuries of culinary tradition, shaped by
+          geography, culture, religion, and trade routes. From the butter-rich gravies of Punjab to the coconut-laced
+          curries of Kerala, from the mustard-sharp fish curries of Bengal to the fiery Chettinad spices — every dish
+          tells a story.</p>
+        <p>This website is a celebration of that extraordinary diversity.</p>
+      </div>
+      <div class="about-facts">
+        <div class="fact-card">
+          <span class="fact-icon">🌶️</span>
+          <h4>Spice Capital</h4>
+          <p>India produces 70% of the world's spices</p>
+        </div>
+        <div class="fact-card">
+          <span class="fact-icon">🥗</span>
+          <h4>Vegetarian Hub</h4>
+          <p>Home to the world's largest vegetarian population</p>
+        </div>
+        <div class="fact-card">
+          <span class="fact-icon">🍱</span>
+          <h4>Thali Tradition</h4>
+          <p>A single thali can include up to 20 mini dishes</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== FOOTER ====== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="logo-icon">🍛</span>
+        <span class="logo-text">All Indian Foods</span>
+        <p>Celebrating the soul of Indian cuisine</p>
+      </div>
+      <div class="footer-links">
+        <h4>Cuisines</h4>
+        <ul>
+          <li><a href="#" onclick="filterFoods('north')">North Indian</a></li>
+          <li><a href="#" onclick="filterFoods('south')">South Indian</a></li>
+          <li><a href="#" onclick="filterFoods('east')">East Indian</a></li>
+          <li><a href="#" onclick="filterFoods('west')">West Indian</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="#" onclick="filterFoods('street')">Street Food</a></li>
+          <li><a href="#" onclick="filterFoods('dessert')">Desserts</a></li>
+          <li><a href="#" onclick="filterFoods('beverage')">Beverages</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Made with ❤️ for food lovers across India &nbsp;|&nbsp; © 2026 All Indian Foods</p>
+    </div>
+  </footer>
+
+  <!-- ====== MODAL ====== -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="modal" role="dialog" aria-modal="true">
+      <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
+      <div class="modal-img-wrap">
+        <img id="modalImg" src="" alt="" />
+        <span class="modal-tag" id="modalTag"></span>
+      </div>
+      <div class="modal-body">
+        <span class="modal-region" id="modalRegion"></span>
+        <h2 id="modalTitle"></h2>
+        <p id="modalDesc"></p>
+        <div class="modal-meta">
+          <span id="modalVeg"></span>
+          <span id="modalCourse"></span>
+          <span id="modalState"></span>
+        </div>
+        <div class="modal-ingredients" id="modalIngredients"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
